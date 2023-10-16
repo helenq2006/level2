@@ -36,15 +36,17 @@
     <body onload = "initialize();">
         <!--<div id = "colordiv">
             <img src = "doctor who.jpg" />
-        <span></span>-->
+        <span></span>
         <div id="textdiv"></div>
             I am a wonderful example of how fonts work!
     </div>
-    <!--<hr />
+     <hr />
     <h1>Old Doctors</h1>
     <img src = "images/jon pertwee.jpg" />
     <img src = "images/tom baker.jpg" />
     <img src = "images/matt.jpg" />-->
+    <h1>This is my home page</h1>
+    <a href = "destination.html">Link to Destination Page</a>
 
     <hr />
 
@@ -75,10 +77,17 @@
             //back = "orange";
 
             //textWidth = 100;
-            textOutput = document.getElementById("textdiv");
-            fontSizeOutput = document.getElementById("sizeout");
+            //textOutput = document.getElementById("textdiv");
+            //fontSizeOutput = document.getElementById("sizeout");
 
-            fontSize = 24;
+            //fontSize = 24;
+            visitsOut = document.getElementById("visits");
+            if (!sessionStorage.numVisits)
+            sessionStorage.numVisits = 0;
+        else
+        sessionStorage.numVisits++;\
+
+        display();
         }
 
         function toggleColor()
@@ -95,8 +104,9 @@
             //halloweenText.style.color = fore;
             //halloweenText.style.backgroundColor = back; 
             //halloweenText.style.width = textWidth + "%";
-            fontSizeOutput.innerHTML = fontSize;
-            textOutput.style.fontSize = fontSize + "pt";
+            //fontSizeOutput.innerHTML = fontSize;
+            //textOutput.style.fontSize = fontSize + "pt";
+            visitsOut.innerHTML = sessionStorage.numVisits;
         }
 
         function changeWidth(w)
