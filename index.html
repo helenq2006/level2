@@ -11,9 +11,11 @@
 
             div
             {
-                /*text-align:justify;*/
+                /*text-align:justify;
                 color: black;
-                background-color: orange;
+                background-color: orange;*/
+                font: bold 24pt comic sans ms;
+                text-decoration: underline wavy green;
             }
 
             span
@@ -32,11 +34,11 @@
     </head>
 
     <body onload = "initialize();">
-        <div id = "colordiv">
-        <!--<img src = "doctor who.jpg" />
+        <!--<div id = "colordiv">
+            <img src = "doctor who.jpg" />
         <span></span>-->
-            Click the button to switch me from black to orange and back
-            again and again. Happy Halloween.
+        <div id="textdiv"></div>
+            I am a wonderful example of how fonts work!
     </div>
     <!--<hr />
     <h1>Old Doctors</h1>
@@ -44,12 +46,18 @@
     <img src = "images/tom baker.jpg" />
     <img src = "images/matt.jpg" />-->
 
+    <hr />
+
     <p>
-        <button onclick = "toggleColor()">Toggle Colors</button>
+        <!--<button onclick = "toggleColor()">Toggle Colors</button>
         <button onclick = "changeWidth(25)">25% Width</button>
         <button onclick = "changeWidth(50)">50% Width</button>
         <button onclick = "changeWidth(75)">75% Width</button>
-        <button onclick = "changeWidth(100)">100% Width</button>
+        <button onclick = "changeWidth(100)">100% Width</button>-->
+        <div>Current font size: <span id = "sizeout">point</span></div>
+        <button onclick = "modifyFontSize(1);">Font Size ++</button>
+        <button onclick = "modifyFontSize(-1);">Font Size --</button>
+
     </p>
 
         <!--Add a <div>-->
@@ -61,12 +69,16 @@
     <script>
         function initialize()
         {
-            halloweenText = document.getElementById("colordiv");
+            //halloweenText = document.getElementById("colordiv");
 
-            fore = "black";
-            back = "orange";
+            //fore = "black";
+            //back = "orange";
 
-            textWidth = 100;
+            //textWidth = 100;
+            textOutput = document.getElementById("textdiv");
+            fontSizeOutput = document.getElementById("sizeout");
+
+            fontSize = 24;
         }
 
         function toggleColor()
@@ -80,14 +92,26 @@
 
         function display()
         {
-            halloweenText.style.color = fore;
-            halloweenText.style.backgroundColor = back; 
-            halloweenText.style.width = textWidth + "%";
+            //halloweenText.style.color = fore;
+            //halloweenText.style.backgroundColor = back; 
+            //halloweenText.style.width = textWidth + "%";
+            fontSizeOutput.innerHTML = fontSize;
+            textOutput.style.fontSize = fontSize + "pt";
         }
 
         function changeWidth(w)
         {
             textWidth = w;
+            display();
+        }
+
+        function modifyFontSize(mod)
+        {
+            fontSize += mod;
+
+            if (fontSize < 4)
+            fontSize = 4;
+
             display();
         }
     </script>
